@@ -1,4 +1,4 @@
-package org.lejos.example;
+package br.edu.cassio.SegueLinha;
 
 import lejos.nxt.Motor;
 
