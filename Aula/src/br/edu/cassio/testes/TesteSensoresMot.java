@@ -1,9 +1,9 @@
-package br.edu.cassio.SensoresMotores;
+package br.edu.cassio.testes;
 
  
 import lejos.nxt.*;
- 
-public class TesteSensoresMotores {
+ import lejos.robotics.navigation.LegacyPilot;
+public class TesteSensoresMot {
 
 	public static void main(String[] args) throws InterruptedException {
 		System.out.println("sula sabados");
