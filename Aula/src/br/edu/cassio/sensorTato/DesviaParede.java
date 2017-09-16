@@ -19,7 +19,7 @@ public class DesviaParede {
      */
     public static void main(String[] args) {
         TouchSensor touch = new TouchSensor(SensorPort.S4);
-        DifferentialPilot pilot = new DifferentialPilot(55f, 112f, Motor.A, Motor.C);
+        DifferentialPilot pilot = new DifferentialPilot(30f, 70f, Motor.A, Motor.C);
 
         while (true) {
             if (touch.isPressed()) {
