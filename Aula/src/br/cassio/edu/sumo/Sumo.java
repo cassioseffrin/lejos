@@ -1,4 +1,4 @@
-package br.edu.cassio.sumo;
+package br.cassio.edu.sumo;
 
 import lejos.nxt.LightSensor;
 import lejos.nxt.Motor;
