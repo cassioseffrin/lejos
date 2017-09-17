@@ -1,15 +1,17 @@
-package br.edu.cassio.sensorTato;
+package br.cassio.edu.sumo;
 
+import lejos.nxt.LightSensor;
 import lejos.nxt.Motor;
 import lejos.nxt.SensorPort;
 import lejos.nxt.TouchSensor;
+import lejos.nxt.UltrasonicSensor;
 import lejos.robotics.navigation.DifferentialPilot;
 
 /**
  *
  * @author Cassio Seffrin
  */
-public class DesviaParede {
+public class Sumo {
 
     /**
      * move o robo ateh achar a parede, quando o sensor toca-la, o robo vota um
@@ -18,20 +20,37 @@ public class DesviaParede {
      * @param args
      */
     public static void main(String[] args) {
+        LightSensor luz = new LightSensor(SensorPort.S1);
         TouchSensor touch = new TouchSensor(SensorPort.S4);
+        UltrasonicSensor us = new UltrasonicSensor(SensorPort.S2);
+        
         DifferentialPilot pilot = new DifferentialPilot(30, 70f, Motor.A, Motor.C);
         modificaVelocidade(200);
+        
+        
+         
         while (true) {
-            if (touch.isPressed()) {
+            if (us.getDistance()>10) {
                 modificaAceleracao(10);
-                pilot.travel(-100);
-                pilot.rotate(90);
-            } else {
                 modificaVelocidade(200);
-                pilot.forward();
-                System.out.println("velocidade"+Motor.A.getSpeed());
+                pilot.travel(300);
+            } else {
+                pilot.rotate(1);
+                modificaVelocidade(200);
+                //  System.out.println("velocidade"+Motor.A.getSpeed());
                 System.out.println("Tacho a: " + Motor.A.getTachoCount());
             }
+            //achou linha preta
+            if (luz.readValue()>40){
+                pilot.travel(50);
+            }
+            
+            //detectou botao do sensor touch pressionado
+            if (touch.isPressed()) {
+                modificaAceleracao(10);
+                pilot.travel(100);
+            }
+            
         }
     }
 

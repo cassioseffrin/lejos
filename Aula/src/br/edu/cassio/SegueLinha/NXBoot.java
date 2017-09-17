@@ -1,6 +1,7 @@
 package br.edu.cassio.SegueLinha;
 
 import lejos.nxt.Motor;
+import util.ConstantesRobo;
 
 
 /**
@@ -11,34 +12,46 @@ public class NXBoot {
     
     public static void avanca(int ms) throws InterruptedException{
         
-        Motor.A.forward();
-        Motor.C.forward();
+        ConstantesRobo.motorDireito.forward();
+        ConstantesRobo.motorEsquerdo.forward();
+        
         Thread.sleep(ms);
     }
     
     
     public static void voltar(int ms) throws InterruptedException{
         
-        Motor.A.backward();
-        Motor.C.backward();
+        ConstantesRobo.motorDireito.backward();
+        ConstantesRobo.motorEsquerdo.backward();
         Thread.sleep(ms);
     }
     public static void esquerda(int ms) throws InterruptedException{
         
-        Motor.A.forward();
-        Motor.C.stop();
+        ConstantesRobo.motorDireito.forward();
+        ConstantesRobo.motorEsquerdo.stop();
         Thread.sleep(ms);
     }
     
     public static void direita(int ms) throws InterruptedException{
         
-        Motor.A.stop();
-        Motor.C.forward();
+        ConstantesRobo.motorDireito.stop();
+        ConstantesRobo.motorEsquerdo.forward();
         Thread.sleep(ms);
     }
     
     public static void parar() throws InterruptedException{
-        Motor.A.stop();
-        Motor.C.stop();
+        ConstantesRobo.motorDireito.stop();
+        ConstantesRobo.motorEsquerdo.stop();
+    }
+    
+        public static void modificaVelocidade(float velo) {
+        ConstantesRobo.motorDireito.setSpeed(velo);
+        ConstantesRobo.motorEsquerdo.setSpeed(velo);
+    }
+
+    public static void modificaAceleracao(int aceleracao) {
+        ConstantesRobo.motorDireito.setAcceleration(aceleracao);
+        ConstantesRobo.motorEsquerdo.setAcceleration(aceleracao);
+        
     }
 }
