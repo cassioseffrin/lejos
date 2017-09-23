@@ -1,5 +1,6 @@
-package br.edu.cassio.ultrasom;
+package br.edu.cassio.behaviorSumo;
 
+import lejos.nxt.LightSensor;
 import lejos.nxt.UltrasonicSensor;
 import lejos.robotics.navigation.DifferentialPilot;
  
@@ -10,11 +11,11 @@ import lejos.robotics.navigation.DifferentialPilot;
  
  * @author cassioseffrin
  */
-public class CalculaDistancia extends Mover {
+public class Parar extends Mover {
 
  
-    public CalculaDistancia(int distance, DifferentialPilot pilot, UltrasonicSensor ultrasonic) {
-        super(distance, pilot, ultrasonic);
+    public Parar(int distance, DifferentialPilot pilot, LightSensor luz,UltrasonicSensor ultrasonic) {
+        super(distance, pilot, luz, ultrasonic);
     }
 
     /**
@@ -24,8 +25,8 @@ public class CalculaDistancia extends Mover {
     public boolean takeControl() {
         
         System.out.println("distancia: "+ultrasonic.getDistance());
-        return ultrasonic.getDistance() < distance + LIMITE_ERRO && ultrasonic.
-                getDistance() > distance - LIMITE_ERRO;
+        return (ultrasonic.getDistance() < 18 && ultrasonic.
+                getDistance() > 12);
 
     }
 

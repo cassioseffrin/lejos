@@ -1,7 +1,8 @@
-package br.edu.cassio.ultrasom;
+package br.edu.cassio.behaviorSumo;
 
 import lejos.nxt.Button;
 import lejos.nxt.ButtonListener;
+import lejos.nxt.LightSensor;
 import lejos.nxt.Motor;
 import lejos.nxt.SensorPort;
 import lejos.nxt.UltrasonicSensor;
@@ -15,17 +16,18 @@ import util.ConstantesRobo;
  * 
  * @author cassioseffrin
  */
-public class RoboDistancia {
+public class IvarTheBoneless {
 
  
     public static void main(String [] args) {
-        DifferentialPilot pilot = new DifferentialPilot(ConstantesRobo.DIAMETRO_RODA,
+        DifferentialPilot piloto = new DifferentialPilot(ConstantesRobo.DIAMETRO_RODA,
                                      ConstantesRobo.LARGURA_ENTRE_RODAS, Motor.B,
                                      Motor.A, true);
         UltrasonicSensor ultrasonic = new UltrasonicSensor(SensorPort.S1);
-        int distance = 20;
-       // pilot.setMoveSpeed(720);
-
+        LightSensor luz = new LightSensor(SensorPort.S2);
+        int distance = 15;
+       
+piloto.setTravelSpeed(400);
         //para fechar
         Button.ENTER.addButtonListener(new ButtonListener() {
             public void buttonPressed(Button button) { System.exit(0); }
@@ -33,10 +35,10 @@ public class RoboDistancia {
         });
 
         // cria os comportamentos e adiciona ao array
-        Mover forward = new Avancar(distance, pilot, ultrasonic);
-        Mover backward = new Voltar(distance, pilot, ultrasonic);
-        Mover still = new CalculaDistancia(distance, pilot, ultrasonic);
-        Behavior[] moves = {forward, backward, still};
+        Mover avanca = new Avancar(distance, piloto, luz, ultrasonic);
+        Mover volta = new Voltar(distance, piloto, luz, ultrasonic);
+        Mover para = new Parar(distance, piloto, luz, ultrasonic);
+        Behavior[] moves = {avanca, volta, para};
 
         // inicia o arbitrator com array de comporatamento 
         // ciclos de comportamento 

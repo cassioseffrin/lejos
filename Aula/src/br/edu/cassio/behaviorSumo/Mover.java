@@ -1,5 +1,6 @@
-package br.edu.cassio.ultrasom;
+package br.edu.cassio.behaviorSumo;
 
+import lejos.nxt.LightSensor;
 import lejos.nxt.UltrasonicSensor;
 import lejos.robotics.navigation.DifferentialPilot;
 import lejos.robotics.subsumption.Behavior;
@@ -20,6 +21,8 @@ public abstract class Mover implements Behavior {
     protected DifferentialPilot pilot;
 
     protected UltrasonicSensor ultrasonic;
+    
+    protected LightSensor luz;
 
     /**
      * Distancia mantria +/- limite erro
@@ -33,10 +36,11 @@ public abstract class Mover implements Behavior {
      * @param pilot piloto
      * @param ultrasonic sensor distancia
      */
-    public Mover(int distance, DifferentialPilot pilot, UltrasonicSensor ultrasonic) {
+    public Mover(int distance, DifferentialPilot pilot, LightSensor luz, UltrasonicSensor ultrasonic) {
         this.pilot = pilot;
         this.ultrasonic = ultrasonic;
         this.distance = distance;
+        this.luz=luz;
 
     }
 

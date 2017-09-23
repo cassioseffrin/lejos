@@ -44,7 +44,7 @@ public class NXBoot {
         ConstantesRobo.motorEsquerdo.stop();
     }
     
-        public static void modificaVelocidade(float velo) {
+        public static void modificaVelocidade(int velo) {
         ConstantesRobo.motorDireito.setSpeed(velo);
         ConstantesRobo.motorEsquerdo.setSpeed(velo);
     }
