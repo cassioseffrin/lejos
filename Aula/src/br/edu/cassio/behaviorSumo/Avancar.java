@@ -10,8 +10,8 @@ import lejos.robotics.navigation.DifferentialPilot;
  */
 public class Avancar extends Mover {
 
-    public Avancar(int distance, DifferentialPilot pilot, LightSensor luz, UltrasonicSensor ultrasonic) {
-        super(distance, pilot, luz, ultrasonic);
+    public Avancar(int distancia, DifferentialPilot pilot, LightSensor luz, UltrasonicSensor ultrasonic) {
+        super(distancia, pilot, luz, ultrasonic);
     }
 
     /**

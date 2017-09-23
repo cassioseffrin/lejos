@@ -27,7 +27,7 @@ public abstract class Mover implements Behavior {
     /**
      * Distancia mantria +/- limite erro
      */
-    protected int distance;
+    protected int distancia;
 
     /**
      * Construtor
@@ -37,16 +37,17 @@ public abstract class Mover implements Behavior {
      * @param luz sensor luz
      * @param ultrasonic sensor distancia
      */
-    public Mover(int distance, DifferentialPilot pilot, LightSensor luz, UltrasonicSensor ultrasonic) {
+    public Mover(int distancia, DifferentialPilot pilot, LightSensor luz, UltrasonicSensor ultrasonic) {
         this.piloto = pilot;
         this.us = ultrasonic;
-        this.distance = distance;
+        this.distancia = distancia;
         this.luz=luz;
     }
 
     /**
      * parar
      */
+    @Override
     public void suppress() {
         piloto.stop();
     }
