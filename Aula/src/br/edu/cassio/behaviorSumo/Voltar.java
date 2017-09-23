@@ -10,8 +10,8 @@ import lejos.robotics.navigation.DifferentialPilot;
  */
 public class Voltar extends Mover {
 
-    public Voltar(int distancia, DifferentialPilot pilot, LightSensor luz, UltrasonicSensor us) {
-        super(distancia, pilot, luz, us);
+    public Voltar(int distancia, DifferentialPilot piloto, LightSensor luz, UltrasonicSensor us) {
+        super(distancia, piloto, luz, us);
     }
 
     /*

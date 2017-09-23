@@ -37,8 +37,8 @@ public abstract class Mover implements Behavior {
      * @param luz sensor luz
      * @param ultrasonic sensor distancia
      */
-    public Mover(int distancia, DifferentialPilot pilot, LightSensor luz, UltrasonicSensor ultrasonic) {
-        this.piloto = pilot;
+    public Mover(int distancia, DifferentialPilot piloto, LightSensor luz, UltrasonicSensor ultrasonic) {
+        this.piloto = piloto;
         this.us = ultrasonic;
         this.distancia = distancia;
         this.luz=luz;

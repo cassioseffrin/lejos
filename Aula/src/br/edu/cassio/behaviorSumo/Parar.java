@@ -14,8 +14,8 @@ import lejos.robotics.navigation.DifferentialPilot;
 public class Parar extends Mover {
 
  
-    public Parar(int distancia, DifferentialPilot pilot, LightSensor luz,UltrasonicSensor ultrasonic) {
-        super(distancia, pilot, luz, ultrasonic);
+    public Parar(int distancia, DifferentialPilot piloto, LightSensor luz,UltrasonicSensor ultrasonic) {
+        super(distancia, piloto, luz, ultrasonic);
     }
 
     /**
