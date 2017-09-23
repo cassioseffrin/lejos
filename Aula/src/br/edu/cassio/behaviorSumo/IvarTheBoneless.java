@@ -22,7 +22,7 @@ public class IvarTheBoneless {
                 ConstantesRobo.motorEsquerdo, true);
         UltrasonicSensor ultrasonic = new UltrasonicSensor(SensorPort.S1);
         LightSensor luz = new LightSensor(SensorPort.S2);
-        int distance = 15;
+        int distancia = 15;
 
         piloto.setTravelSpeed(400);
         //para fechar
@@ -36,9 +36,9 @@ public class IvarTheBoneless {
         });
 
         // cria os comportamentos e adiciona ao array
-        Mover avanca = new Avancar(distance, piloto, luz, ultrasonic);
-        Mover volta = new Voltar(distance, piloto, luz, ultrasonic);
-        Mover para = new Parar(distance, piloto, luz, ultrasonic);
+        Mover avanca = new Avancar(distancia, piloto, luz, ultrasonic);
+        Mover volta = new Voltar(distancia, piloto, luz, ultrasonic);
+        Mover para = new Parar(distancia, piloto, luz, ultrasonic);
         Behavior[] moves = {avanca, volta, para};
 
         // inicia o arbitro com array de comporatamento 
