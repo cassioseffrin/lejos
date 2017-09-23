@@ -25,7 +25,7 @@ public class Avancar extends Mover {
             retorno = false;
             
         }else{
-           retorno = (ultrasonic.getDistance()  > 12); 
+           retorno = (us.getDistance()  > 12); 
         }
         return retorno;
 
@@ -37,6 +37,6 @@ public class Avancar extends Mover {
     @Override
     public void action() {
     
-        pilot.forward();
+        piloto.forward();
     }
 }

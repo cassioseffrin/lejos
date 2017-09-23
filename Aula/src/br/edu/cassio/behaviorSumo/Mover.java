@@ -18,9 +18,9 @@ public abstract class Mover implements Behavior {
     /**
      * Piloto usado para mover o robo
      */
-    protected DifferentialPilot pilot;
+    protected DifferentialPilot piloto;
 
-    protected UltrasonicSensor ultrasonic;
+    protected UltrasonicSensor us;
     
     protected LightSensor luz;
 
@@ -34,21 +34,21 @@ public abstract class Mover implements Behavior {
      *
      * @param distance a manter
      * @param pilot piloto
+     * @param luz sensor luz
      * @param ultrasonic sensor distancia
      */
     public Mover(int distance, DifferentialPilot pilot, LightSensor luz, UltrasonicSensor ultrasonic) {
-        this.pilot = pilot;
-        this.ultrasonic = ultrasonic;
+        this.piloto = pilot;
+        this.us = ultrasonic;
         this.distance = distance;
         this.luz=luz;
-
     }
 
     /**
      * parar
      */
     public void suppress() {
-        pilot.stop();
+        piloto.stop();
     }
 
 }

@@ -24,8 +24,8 @@ public class Parar extends Mover {
     @Override
     public boolean takeControl() {
         
-        System.out.println("distancia: "+ultrasonic.getDistance());
-        return (ultrasonic.getDistance() < 18 && ultrasonic.
+        System.out.println("distancia: "+us.getDistance());
+        return (us.getDistance() < 18 && us.
                 getDistance() > 12);
 
     }
@@ -33,6 +33,6 @@ public class Parar extends Mover {
      
     @Override
     public void action() {
-        pilot.stop();
+        piloto.stop();
     }
 }
