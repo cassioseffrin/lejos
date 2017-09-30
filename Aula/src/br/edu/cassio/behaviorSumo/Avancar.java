@@ -1,5 +1,6 @@
 package br.edu.cassio.behaviorSumo;
-
+ 
+import lejos.nxt.ColorSensor;
 import lejos.nxt.LightSensor;
 import lejos.nxt.UltrasonicSensor;
 import lejos.robotics.navigation.DifferentialPilot;
@@ -10,8 +11,8 @@ import lejos.robotics.navigation.DifferentialPilot;
  */
 public class Avancar extends Mover {
 
-    public Avancar(int distancia, DifferentialPilot piloto, LightSensor luz, UltrasonicSensor ultrasonic) {
-        super(distancia, piloto, luz, ultrasonic);
+    public Avancar(int distance, DifferentialPilot pilot, ColorSensor luz, UltrasonicSensor ultrasonic) {
+        super(distance, pilot, luz, ultrasonic);
     }
 
     /**
@@ -20,14 +21,8 @@ public class Avancar extends Mover {
     @Override
     public boolean takeControl() {
         boolean  retorno;
-        System.out.println("luz Avancar:"+luz.getLightValue());
-        if (luz.getLightValue() < 40) {
-            retorno = false;
-            
-        }else{
-           retorno = (us.getDistance()  > 12); 
-        }
-        return retorno;
+        retorno = (ultrasonic.getDistance()  <= 15); 
+        return retorno ;
 
     }
 
@@ -36,7 +31,11 @@ public class Avancar extends Mover {
      */
     @Override
     public void action() {
-    
-        piloto.forward();
+    System.out.println("AVANCAR");
+        pilot.setTravelSpeed(200);
+        pilot.forward();
+//        while (pilot.isMoving())
+//            Thread.yield();
+  
     }
 }

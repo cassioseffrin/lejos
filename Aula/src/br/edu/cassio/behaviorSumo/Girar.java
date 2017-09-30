@@ -10,9 +10,10 @@ import lejos.robotics.navigation.DifferentialPilot;
  *
  * @author cassioseffrin
  */
-public class Voltar extends Mover {
+public class Girar extends Mover {
 
-    public Voltar(int distance, DifferentialPilot pilot, ColorSensor luz, UltrasonicSensor us) {
+ 
+    public Girar(int distance, DifferentialPilot pilot, ColorSensor luz,UltrasonicSensor us) {
         super(distance, pilot, luz, us);
     }
 
@@ -21,9 +22,13 @@ public class Voltar extends Mover {
      */
     @Override
     public boolean takeControl() {
-        boolean retorno = false;
-        retorno = (ultrasonic.getDistance() > 16);
+
+       //  System.out.println("Di: "+ultrasonic.getDistance());
+       boolean retorno=false ;
+       retorno =  (ultrasonic.getDistance()  > 16);
+     
         return retorno;
+        
     }
 
     /**
@@ -31,11 +36,12 @@ public class Voltar extends Mover {
      */
     @Override
     public void action() {
-        System.out.println("VOLTAR");
-        pilot.backward();
+        System.out.println("360");
+        pilot.setTravelSpeed(720);
+        pilot.rotate(30);
 //        while(pilot.isMoving())
 //            Thread.yield();
-
+ 
     }
 
 }

@@ -1,5 +1,6 @@
 package br.edu.cassio.behaviorSumo;
 
+import lejos.nxt.ColorSensor;
 import lejos.nxt.LightSensor;
 import lejos.nxt.UltrasonicSensor;
 import lejos.robotics.navigation.DifferentialPilot;
@@ -18,38 +19,39 @@ public abstract class Mover implements Behavior {
     /**
      * Piloto usado para mover o robo
      */
-    protected DifferentialPilot piloto;
+    protected DifferentialPilot pilot;
 
-    protected UltrasonicSensor us;
+    protected UltrasonicSensor ultrasonic;
     
-    protected LightSensor luz;
+    protected ColorSensor luz;
 
     /**
      * Distancia mantria +/- limite erro
      */
-    protected int distancia;
+    protected int distance;
 
     /**
      * Construtor
      *
      * @param distance a manter
      * @param pilot piloto
-     * @param luz sensor luz
      * @param ultrasonic sensor distancia
      */
-    public Mover(int distancia, DifferentialPilot piloto, LightSensor luz, UltrasonicSensor ultrasonic) {
-        this.piloto = piloto;
-        this.us = ultrasonic;
-        this.distancia = distancia;
+    public Mover(int distance, DifferentialPilot pilot, ColorSensor luz, UltrasonicSensor ultrasonic) {
+        this.pilot = pilot;
+        this.ultrasonic = ultrasonic;
+        this.distance = distance;
         this.luz=luz;
+
     }
 
     /**
      * parar
      */
-    @Override
     public void suppress() {
-        piloto.stop();
+        System.out.println("SUPPRESS");
+        pilot.stop();
+        Thread.yield();
     }
 
 }

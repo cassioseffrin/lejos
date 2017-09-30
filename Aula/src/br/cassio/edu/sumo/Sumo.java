@@ -47,7 +47,7 @@ public class Sumo {
             
             //detectou botao do sensor touch pressionado
             if (touch.isPressed()) {
-                modificaAceleracao(10);
+           
                 pilot.travel(100);
             }
             
